@@ -174,6 +174,7 @@ int main(int argc, char **argv){
 		bytes_written = write(record_fd, tmp->data, sizeof(paystub_t));
 		debug(verbose_flag, __LINE__);
 		while(tmp->next != NULL){
+			debug(verbose_flag, __LINE__);
 			tmp = tmp->next;
 			bytes_written = write(record_fd, tmp->data, sizeof(paystub_t));
 		}
@@ -216,7 +217,8 @@ void add_to_list(node *list, paystub_t t, int count){
 	} else {
 
 		while(tmp->next != NULL){
-			tmp = list->next;
+			debug(verbose_flag, __LINE__);
+			tmp = tmp->next;
 		}
 		//tmp points to end of list
 		//copy
